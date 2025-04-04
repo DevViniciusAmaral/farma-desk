@@ -1,12 +1,13 @@
-import { Text, View } from "react-native";
 import { createStyleSheet, useStyles } from "react-native-unistyles";
+import { Layout } from "./components/layout";
+import { Text } from "./components/text";
 
 export const Home = () => {
   const { styles } = useStyles(stylesheet);
   return (
-    <View style={styles.container}>
+    <Layout>
       <Text style={styles.text}>Home</Text>
-    </View>
+    </Layout>
   );
 };
 

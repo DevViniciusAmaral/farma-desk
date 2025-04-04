@@ -1,0 +1,13 @@
+{
+  "migIndex": 1,
+  "data": [
+    {
+      "path": "assets/fonts/MundialDemibold.otf",
+      "sha1": "fc361866fd6478d59171d5a5bc0bfc5009f0e840"
+    },
+    {
+      "path": "assets/fonts/MundialRegular.otf",
+      "sha1": "2888cb3a679574a9f9a3d48ead0e0bd852209d65"
+    }
+  ]
+}

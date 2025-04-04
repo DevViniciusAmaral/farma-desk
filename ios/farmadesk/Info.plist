@@ -49,5 +49,10 @@
 	</array>
 	<key>UIViewControllerBasedStatusBarAppearance</key>
 	<false/>
+	<key>UIAppFonts</key>
+	<array>
+		<string>MundialDemibold.otf</string>
+		<string>MundialRegular.otf</string>
+	</array>
 </dict>
 </plist>

@@ -1,4 +1,4 @@
-package com.farmadesk
+package com.viniciusamaral.farmadesk
 
 import android.app.Application
 import android.content.res.Configuration

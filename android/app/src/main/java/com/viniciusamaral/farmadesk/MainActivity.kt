@@ -1,4 +1,4 @@
-package com.farmadesk
+package com.viniciusamaral.farmadesk
 
 import android.os.Build
 import android.os.Bundle

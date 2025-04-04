@@ -8,6 +8,7 @@ import {
 import { useStyles } from "react-native-unistyles";
 import { stylesheet } from "./styles";
 import { StatusBar } from "expo-status-bar";
+import { useSafeAreaInsets } from "react-native-safe-area-context";
 
 interface LayoutProps extends ScrollViewProps {
   header?: React.ReactNode;
@@ -24,11 +25,17 @@ export const Layout = ({
   ...rest
 }: LayoutProps) => {
   const { styles, theme } = useStyles(stylesheet);
+  const { top } = useSafeAreaInsets();
+  const paddingTop = paddingTopEnabled ? top : 0;
 
   const behavior = Platform.OS === "ios" ? "padding" : "height";
 
   return (
-    <KeyboardAvoidingView enabled behavior={behavior} style={styles.container}>
+    <KeyboardAvoidingView
+      enabled
+      behavior={behavior}
+      style={styles.container(paddingTop)}
+    >
       <StatusBar style="dark" backgroundColor={theme.colors.primary.default} />
       {header && <>{header}</>}
 

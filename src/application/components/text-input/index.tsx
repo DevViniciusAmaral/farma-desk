@@ -15,6 +15,11 @@ export const TextInput = forwardRef<any, TextInputProps>(
   ({ size = 14, font = "regular", style, ...rest }, ref) => {
     const { styles, theme } = useStyles(stylesheet);
 
+    const fontFamily = {
+      regular: theme.fonts.regular,
+      semibold: theme.fonts.semibold,
+    }[font];
+
     return (
       <RNTextInput
         {...rest}
@@ -22,7 +27,7 @@ export const TextInput = forwardRef<any, TextInputProps>(
         autoComplete="off"
         autoCorrect={false}
         autoCapitalize="none"
-        style={[styles.textInput(size, font), style]}
+        style={[styles.textInput(size, fontFamily), style]}
         placeholderTextColor={theme.colors.primary.dark}
       />
     );

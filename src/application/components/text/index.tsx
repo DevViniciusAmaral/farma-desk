@@ -10,10 +10,15 @@ export interface TextProps extends RNTextProps {
 
 export const Text = forwardRef<any, TextProps>(
   ({ size = 14, font = "regular", style, ...rest }, ref) => {
-    const { styles } = useStyles(stylesheet);
+    const { styles, theme } = useStyles(stylesheet);
+
+    const fontFamily = {
+      regular: theme.fonts.regular,
+      semibold: theme.fonts.semibold,
+    }[font];
 
     return (
-      <RNText {...rest} ref={ref} style={[styles.text(size, font), style]} />
+      <RNText {...rest} ref={ref} style={[styles.text(size, fontFamily), style]} />
     );
   }
 );

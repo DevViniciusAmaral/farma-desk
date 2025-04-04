@@ -1,6 +1,7 @@
 import "./src/application/theme";
-import { registerRootComponent } from "expo";
-import App from "./src/application";
-import { Home } from "./src/application";
+import 'react-native-gesture-handler';
 
-registerRootComponent(Home);
+import { registerRootComponent } from "expo";
+import { App } from "./src/application";
+
+registerRootComponent(App);

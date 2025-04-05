@@ -12,7 +12,7 @@ export interface TextInputProps extends RNTextInputProps {
 }
 
 export const TextInput = forwardRef<any, TextInputProps>(
-  ({ size = 14, font = "regular", style, ...rest }, ref) => {
+  ({ size = 20, font = "regular", style, ...rest }, ref) => {
     const { styles, theme } = useStyles(stylesheet);
 
     const fontFamily = {
@@ -22,13 +22,13 @@ export const TextInput = forwardRef<any, TextInputProps>(
 
     return (
       <RNTextInput
-        {...rest}
         ref={ref}
         autoComplete="off"
         autoCorrect={false}
         autoCapitalize="none"
         style={[styles.textInput(size, fontFamily), style]}
         placeholderTextColor={theme.colors.primary.dark}
+        {...rest}
       />
     );
   }

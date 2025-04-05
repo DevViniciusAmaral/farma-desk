@@ -5,7 +5,7 @@ import { Button } from "../button";
 import { Text, TextProps } from "../text";
 
 interface PrimaryButtonProps extends TouchableOpacityProps {
-  mode?: "primary" | "secondary";
+  mode?: "primary" | "secondary" | "tertiary";
   disabled?: boolean;
   textProps?: TextProps;
 }
@@ -25,6 +25,7 @@ export const PrimaryButton = ({
     : {
         primary: theme.colors.secondary.default,
         secondary: theme.colors.tertiary.default,
+        tertiary: theme.colors.text,
       }[mode];
 
   const textColor = disabled

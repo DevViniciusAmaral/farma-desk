@@ -12,6 +12,10 @@ export const lightTheme = {
       light: "#E1F0E8",
       dark: "#187D45",
     },
+    tertiary: {
+      default: "#9747FF",
+      light: "#F8E9FE",
+    },
     alert: {
       default: "#D95154",
       light: "#FFECEC",

@@ -12,8 +12,9 @@ import { CheckButton } from "../../../components/check-button";
 import { useState } from "react";
 import { Button } from "../../../components/button";
 import { PrimaryButton } from "../../../components/primary-button";
+import { MainRootProps } from "../../../routes/MainRootProps";
 
-export const SignIn = () => {
+export const SignIn = ({ navigation }: MainRootProps<"SignIn">) => {
   const { styles } = useStyles(stylesheet);
 
   const [stayConected, setStayConected] = useState(false);
@@ -26,6 +27,7 @@ export const SignIn = () => {
 
   const handleSubmitForm = async (data: FormData) => {
     console.log(data);
+    navigation.navigate("ConfirmEmail");
   };
 
   return (

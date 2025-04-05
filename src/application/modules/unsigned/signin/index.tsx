@@ -13,8 +13,10 @@ import { useState } from "react";
 import { Button } from "../../../components/button";
 import { PrimaryButton } from "../../../components/primary-button";
 import { MainRootProps } from "../../../routes/MainRootProps";
+import { useAuth } from "../../../hooks/useAuth";
 
 export const SignIn = ({ navigation }: MainRootProps<"SignIn">) => {
+  const { signIn } = useAuth();
   const { styles } = useStyles(stylesheet);
 
   const [stayConected, setStayConected] = useState(false);
@@ -25,8 +27,8 @@ export const SignIn = ({ navigation }: MainRootProps<"SignIn">) => {
     handleSubmit,
   } = useForm<FormData>({ resolver: zodResolver(schema) as any });
 
-  const handleSubmitForm = async (data: FormData) => {
-    console.log(data);
+  const handleSubmitForm = async ({ email, password }: FormData) => {
+    await signIn(email, password);
     navigation.navigate("ConfirmEmail");
   };
 
@@ -90,7 +92,11 @@ export const SignIn = ({ navigation }: MainRootProps<"SignIn">) => {
         <View style={styles.divisor} />
       </View>
 
-      <PrimaryButton mode="secondary" style={styles.button}>
+      <PrimaryButton
+        mode="secondary"
+        style={styles.button}
+        onPress={() => navigation.navigate("ConfirmEmail")}
+      >
         Criar conta
       </PrimaryButton>
     </Layout>

@@ -8,11 +8,17 @@ import { useState } from "react";
 import { PrimaryButton } from "../../../components/primary-button";
 import { Button } from "../../../components/button";
 import { MainRootProps } from "../../../routes/MainRootProps";
+import { useAuth } from "../../../hooks/useAuth";
 
 export const ConfirmEmail = ({ navigation }: MainRootProps<"ConfirmEmail">) => {
+  const { signIn } = useAuth();
   const { styles } = useStyles(stylesheet);
 
   const [code, setCode] = useState(["", "", "", ""]);
+
+  const handleSignup = async () => {
+    await signIn("user@email.com", "123456");
+  };
 
   return (
     <Layout
@@ -39,10 +45,7 @@ export const ConfirmEmail = ({ navigation }: MainRootProps<"ConfirmEmail">) => {
           Voltar
         </PrimaryButton>
 
-        <PrimaryButton
-          style={styles.button}
-          onPress={() => navigation.navigate("Home")}
-        >
+        <PrimaryButton style={styles.button} onPress={handleSignup}>
           Confirmar
         </PrimaryButton>
       </View>

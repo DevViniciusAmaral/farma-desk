@@ -54,6 +54,7 @@ export const stylesheet = createStyleSheet((theme) => ({
 
   updateEmailTextButton: {
     color: theme.colors.tertiary.default,
-    textDecorationLine: "underline",
+    borderBottomWidth: 1,
+    borderBottomColor: theme.colors.tertiary.default,
   },
 }));

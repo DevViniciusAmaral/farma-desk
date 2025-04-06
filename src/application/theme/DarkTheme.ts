@@ -16,6 +16,11 @@ export const darkTheme = {
       default: "#9747FF",
       light: "#F8E9FE",
     },
+    info: {
+      default: "#D1DAFF",
+      light: "#E9EDFF",
+      dark: "#5D7EFF",
+    },
     alert: {
       default: "#D95154",
       light: "#FFECEC",

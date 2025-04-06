@@ -40,7 +40,11 @@ export const Layout = ({
       {header && <>{header}</>}
 
       {scrollEnabled ? (
-        <ScrollView {...rest} style={style} />
+        <ScrollView
+          showsVerticalScrollIndicator={false}
+          style={style}
+          {...rest}
+        />
       ) : (
         <View {...rest} style={[styles.content, style]} />
       )}

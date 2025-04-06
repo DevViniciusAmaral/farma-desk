@@ -2,8 +2,7 @@ import { createStyleSheet } from "react-native-unistyles";
 
 export const stylesheet = createStyleSheet((theme) => ({
   image: {
-    flex: 1,
-    minHeight: 231,
+    height: 231,
     padding: 10,
     borderRadius: 16,
     justifyContent: "flex-end",

@@ -7,10 +7,8 @@ import { Highlights } from "./components/highlights";
 import { Categories } from "./components/categories";
 import { ImageSlider } from "../../../components/image-slider";
 import { Header } from "./components/header";
-import { PharmacyCard } from "../../../components/pharmacy-card";
-import { pharmacyList } from "../../../constants/PharmacyList";
-import { Button } from "../../../components/button";
 import { MainRootProps } from "../../../routes/MainRootProps";
+import { PharmacyList } from "../../../components/pharmacy-list";
 
 export const Home = ({ navigation }: MainRootProps<"Home">) => {
   const { styles } = useStyles(stylesheet);
@@ -32,22 +30,12 @@ export const Home = ({ navigation }: MainRootProps<"Home">) => {
         <ImageSlider data={["", "", ""]} />
       </View>
 
-      <View style={styles.vertical}>
-        <Text size={28} font="semibold">
-          Perto de você
-        </Text>
-
-        <View>
-          {pharmacyList.map((_, index) => (
-            <Button key={index} onPress={() => navigation.navigate("Store")}>
-              <PharmacyCard />
-              {index < pharmacyList.length - 1 && (
-                <View style={styles.divider} />
-              )}
-            </Button>
-          ))}
-        </View>
-      </View>
+      <PharmacyList
+        title="Perto de você"
+        data={[1, 2, 3, 4, 5]}
+        handleSelect={() => navigation.navigate("Store")}
+        style={{ marginTop: 26 }}
+      />
     </Layout>
   );
 };

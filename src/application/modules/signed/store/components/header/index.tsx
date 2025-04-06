@@ -5,12 +5,16 @@ import { Button } from "../../../../../components/button";
 import { ChevronLeft, CircleHelp } from "lucide-react-native";
 import { Text } from "../../../../../components/text";
 
-export const Header = () => {
+interface HeaderProps {
+  handleGoBack: () => void;
+}
+
+export const Header = ({ handleGoBack }: HeaderProps) => {
   const { styles, theme } = useStyles(stylesheet);
 
   return (
     <View style={styles.container}>
-      <Button>
+      <Button onPress={handleGoBack}>
         <ChevronLeft size={24} color={theme.colors.text} />
       </Button>
 

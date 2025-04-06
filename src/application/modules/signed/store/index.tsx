@@ -8,15 +8,16 @@ import { ImageSlider } from "../../../components/image-slider";
 import { StoreDetails } from "./components/store-details";
 import { Offers } from "./components/offers";
 import { MoreOrders } from "./components/more-orders";
+import { MainRootProps } from "../../../routes/MainRootProps";
 
-export const Store = () => {
+export const Store = ({ navigation }: MainRootProps<"Store">) => {
   const { styles } = useStyles(stylesheet);
 
   return (
     <Layout
       scrollEnabled
       contentContainerStyle={styles.container}
-      header={<Header />}
+      header={<Header handleGoBack={navigation.goBack} />}
     >
       <StoreDetails />
 
@@ -27,7 +28,9 @@ export const Store = () => {
 
       <Offers />
 
-      <MoreOrders />
+      <MoreOrders
+        handleNavigate={() => navigation.navigate("Product", { id: "" })}
+      />
     </Layout>
   );
 };

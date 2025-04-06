@@ -3,8 +3,13 @@ import { useStyles } from "react-native-unistyles";
 import { stylesheet } from "./styles";
 import { Text } from "../../../../../components/text";
 import { productList } from "../../../../../constants/ProductList";
+import { Button } from "../../../../../components/button";
 
-export const MoreOrders = () => {
+interface MoreOrdersProps {
+  handleNavigate: () => void;
+}
+
+export const MoreOrders = ({ handleNavigate }: MoreOrdersProps) => {
   const { styles } = useStyles(stylesheet);
 
   return (
@@ -15,7 +20,11 @@ export const MoreOrders = () => {
 
       <View style={styles.productList}>
         {productList.map((_, index) => (
-          <View key={index} style={styles.productContainer}>
+          <Button
+            key={index}
+            style={styles.productContainer}
+            onPress={handleNavigate}
+          >
             <View style={styles.productContent}>
               <Image style={styles.productImage} />
               <View>
@@ -34,7 +43,7 @@ export const MoreOrders = () => {
             </View>
 
             {index < productList.length - 1 && <View style={styles.divider} />}
-          </View>
+          </Button>
         ))}
       </View>
     </View>

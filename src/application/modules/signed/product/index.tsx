@@ -10,66 +10,79 @@ import { PrimaryButton } from "../../../components/primary-button";
 import { PharmacyList } from "../../../components/pharmacy-list";
 import { AvailablePharmacyCard } from "./components/available-pharmacy-card";
 import { MainRootProps } from "../../../routes/MainRootProps";
+import { useState } from "react";
+import { AddedToCartModal } from "./components/added-to-cart-modal";
 
 export const Product = ({ route, navigation }: MainRootProps<"Product">) => {
   const productId = route.params?.id;
   const { styles, theme } = useStyles(stylesheet);
 
+  const [showAddedToCartModal, setShowAddedToCartModal] = useState(false);
+
   return (
-    <Layout
-      scrollEnabled
-      contentContainerStyle={styles.container}
-      header={
-        <View style={styles.header}>
-          <Button onPress={navigation.goBack}>
-            <ChevronLeft size={24} color={theme.colors.text} />
-          </Button>
+    <>
+      <Layout
+        scrollEnabled
+        contentContainerStyle={styles.container}
+        header={
+          <View style={styles.header}>
+            <Button onPress={navigation.goBack}>
+              <ChevronLeft size={24} color={theme.colors.text} />
+            </Button>
 
-          <Button>
-            <CircleHelp size={24} color={theme.colors.text} />
-          </Button>
+            <Button>
+              <CircleHelp size={24} color={theme.colors.text} />
+            </Button>
+          </View>
+        }
+      >
+        <ImageSlider data={["", "", ""]} />
+
+        <View style={styles.infoDetails}>
+          <Text size={24} font="semibold">
+            Benegrip Multi Caixa com 20 comprimidos 20mg
+          </Text>
+
+          <View style={styles.priceContent}>
+            <Text size={28} font="semibold" style={styles.price(true)}>
+              R$ 38,00
+            </Text>
+            <Text size={28} font="semibold">
+              {" "}
+              ou{" "}
+            </Text>
+            <Text size={28} font="semibold" style={styles.price(false)}>
+              120 pontos
+            </Text>
+          </View>
         </View>
-      }
-    >
-      <ImageSlider data={["", "", ""]} />
 
-      <View style={styles.infoDetails}>
-        <Text size={24} font="semibold">
-          Benegrip Multi Caixa com 20 comprimidos 20mg
-        </Text>
+        <PrimaryButton onPress={() => setShowAddedToCartModal(true)}>
+          Comprar agora
+        </PrimaryButton>
 
-        <View style={styles.priceContent}>
-          <Text size={28} font="semibold" style={styles.price(true)}>
-            R$ 38,00
-          </Text>
-          <Text size={28} font="semibold">
-            {" "}
-            ou{" "}
-          </Text>
-          <Text size={28} font="semibold" style={styles.price(false)}>
-            120 pontos
-          </Text>
+        <View style={styles.buttonsContainer}>
+          <PrimaryButton mode="secondary" style={styles.button}>
+            Salvar
+          </PrimaryButton>
+          <PrimaryButton disabled style={styles.button}>
+            Compartilhar
+          </PrimaryButton>
         </View>
-      </View>
 
-      <PrimaryButton>Comprar agora</PrimaryButton>
+        <AvailablePharmacyCard />
 
-      <View style={styles.buttonsContainer}>
-        <PrimaryButton mode="secondary" style={styles.button}>
-          Salvar
-        </PrimaryButton>
-        <PrimaryButton disabled style={styles.button}>
-          Compartilhar
-        </PrimaryButton>
-      </View>
+        <PharmacyList
+          title="Parecidos com esse"
+          data={["", "", ""]}
+          style={styles.pharmacyList}
+        />
+      </Layout>
 
-      <AvailablePharmacyCard />
-
-      <PharmacyList
-        title="Parecidos com esse"
-        data={["", "", ""]}
-        style={styles.pharmacyList}
+      <AddedToCartModal
+        isVisible={showAddedToCartModal}
+        onClose={() => setShowAddedToCartModal(false)}
       />
-    </Layout>
+    </>
   );
 };

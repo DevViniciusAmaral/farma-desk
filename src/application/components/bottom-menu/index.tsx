@@ -18,7 +18,7 @@ export const BottomMenu = ({ state, navigation }: BottomTabBarProps) => {
     { name: "Home", icon: Home },
     { name: "Cart", icon: ShoppingCart },
     { name: "Archive", icon: WalletCards },
-    { name: "Profile", icon: SquareUserIcon },
+    { name: "MyAccount", icon: SquareUserIcon },
   ];
 
   return (

@@ -10,8 +10,9 @@ import { Header } from "./components/header";
 import { PharmacyCard } from "../../../components/pharmacy-card";
 import { pharmacyList } from "../../../constants/PharmacyList";
 import { Button } from "../../../components/button";
+import { MainRootProps } from "../../../routes/MainRootProps";
 
-export const Home = () => {
+export const Home = ({ navigation }: MainRootProps<"Home">) => {
   const { styles } = useStyles(stylesheet);
 
   return (
@@ -38,7 +39,7 @@ export const Home = () => {
 
         <View>
           {pharmacyList.map((_, index) => (
-            <Button key={index}>
+            <Button key={index} onPress={() => navigation.navigate("Store")}>
               <PharmacyCard />
               {index < pharmacyList.length - 1 && (
                 <View style={styles.divider} />

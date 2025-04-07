@@ -11,5 +11,6 @@ export const stylesheet = createStyleSheet((theme) => ({
 
   text: (color: string) => ({
     color,
+    textAlign: "center",
   }),
 }));

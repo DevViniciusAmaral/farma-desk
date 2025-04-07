@@ -5,7 +5,11 @@ import { Text } from "../../../../../components/text";
 import { MapPin } from "lucide-react-native";
 import { Button } from "../../../../../components/button";
 
-export const Header = () => {
+interface HeaderProps {
+  address: string;
+}
+
+export const Header = ({ address }: HeaderProps) => {
   const { styles, theme } = useStyles(stylesheet);
 
   return (
@@ -25,7 +29,7 @@ export const Header = () => {
       <View style={styles.addressContainer}>
         <View style={styles.addressContent}>
           <MapPin size={24} color={theme.colors.secondary.default} />
-          <Text style={styles.addressText}>Rua D. Fonseca, Centro, SP</Text>
+          <Text style={styles.addressText}>{address ?? "Sua localização"}</Text>
         </View>
 
         <Button style={styles.addressButton}>

@@ -23,7 +23,6 @@ export const BottomMenu = ({ state, navigation }: BottomTabBarProps) => {
 
   return (
     <View style={styles.container}>
-
       <View style={styles.content}>
         {menuList.map(({ name, icon: Icon }, index) => {
           const isActive = state.index === index;

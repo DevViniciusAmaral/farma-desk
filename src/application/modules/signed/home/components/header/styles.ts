@@ -2,6 +2,7 @@ import { createStyleSheet } from "react-native-unistyles";
 
 export const stylesheet = createStyleSheet((theme) => ({
   container: {
+    width: "100%",
     gap: 15,
     paddingHorizontal: 20,
     paddingTop: 23,
@@ -32,17 +33,18 @@ export const stylesheet = createStyleSheet((theme) => ({
     gap: 16,
     flexDirection: "row",
     alignItems: "center",
-    justifyContent: "space-between",
     backgroundColor: theme.colors.secondary.light,
   },
 
   addressContent: {
+    flex: 1,
     flexDirection: "row",
     alignItems: "center",
     gap: 10,
   },
 
   addressText: {
+    flex: 1,
     color: theme.colors.secondary.default,
   },
 

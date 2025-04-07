@@ -11,9 +11,16 @@ export const stylesheet = createStyleSheet((theme) => ({
     borderRadius: 8,
     flex: 1,
     minHeight: 90,
-    padding: 10,
     justifyContent: "flex-end",
     alignItems: "center",
     backgroundColor: theme.colors.primary.light,
+  },
+  
+  overlay: {
+    position: "absolute",
+    width: "100%",
+    height: "100%",
+    borderRadius: 8,
+    backgroundColor: `${theme.colors.primary.default}20`,
   },
 }));

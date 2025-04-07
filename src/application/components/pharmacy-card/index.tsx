@@ -3,22 +3,27 @@ import { useStyles } from "react-native-unistyles";
 import { stylesheet } from "./styles";
 import { Text } from "../text";
 import { Button } from "../button";
+import { IPharmacy } from "../../models/IPharmacy";
 
-export const PharmacyCard = ({ style, ...rest }: TouchableOpacityProps) => {
+interface PharmacyCardProps extends TouchableOpacityProps {
+  data: IPharmacy;
+}
+
+export const PharmacyCard = ({ data, style, ...rest }: PharmacyCardProps) => {
   const { styles } = useStyles(stylesheet);
 
   return (
     <Button {...rest} style={[styles.container, style]}>
-      <Image style={styles.image} />
+      <Image source={{ uri: data.photoURL }} style={styles.image} />
 
-      <View>
+      <View style={styles.content}>
         <Text size={18} font="semibold">
-          Ultra Farma
+          {data.name}
         </Text>
-        <Text style={styles.description}>Rua Dutra, Centro, São Paulo</Text>
+        <Text style={styles.description}>{data.address}</Text>
         <View style={styles.distanceContent}>
           <Text size={12} font="semibold" style={styles.distanceText}>
-            1.2 km
+            {data.distance}
           </Text>
         </View>
       </View>

@@ -7,10 +7,16 @@ export const stylesheet = createStyleSheet((theme) => ({
     alignItems: "center",
   },
 
+  content: {
+    flex: 1,
+  },
+
   image: {
     width: 84,
     height: 84,
     borderRadius: 12,
+    borderWidth: 1,
+    borderColor: `${theme.colors.text}05`,
     backgroundColor: theme.colors.primary.light,
   },
 
@@ -25,7 +31,7 @@ export const stylesheet = createStyleSheet((theme) => ({
     paddingHorizontal: 16,
     backgroundColor: theme.colors.tertiary.light,
     borderRadius: 100,
-    alignSelf: "flex-start"
+    alignSelf: "flex-start",
   },
 
   distanceText: {

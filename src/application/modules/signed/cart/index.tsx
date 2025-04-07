@@ -9,8 +9,7 @@ import { Divider } from "../../../components/divider";
 import { Button } from "../../../components/button";
 import { Plus } from "lucide-react-native";
 import { MainRootProps } from "../../../routes/MainRootProps";
-
-const products = [1, 2, 3, 4, 5];
+import { productList } from "../../../constants/ProductList";
 
 export const Cart = ({ navigation }: MainRootProps<"Cart">) => {
   const { styles, theme } = useStyles(stylesheet);
@@ -19,7 +18,10 @@ export const Cart = ({ navigation }: MainRootProps<"Cart">) => {
     <Layout
       style={styles.container}
       header={
-        <Header handleNavigate={() => navigation.navigate("PaymentMethod")} />
+        <Header
+          product={productList.at(0)}
+          handleNavigate={() => navigation.navigate("PaymentMethod")}
+        />
       }
       statusBar={{ style: "light", color: theme.colors.tertiary.default }}
     >
@@ -31,13 +33,16 @@ export const Cart = ({ navigation }: MainRootProps<"Cart">) => {
         contentContainerStyle={styles.productList}
         showsVerticalScrollIndicator={false}
       >
-        {products.map((_, index) => (
+        {productList.map((product, index) => (
           <View key={index}>
             <View style={styles.productCard}>
-              <Image style={styles.productImage} />
-              <View>
+              <Image
+                source={{ uri: product.photoURL }}
+                style={styles.productImage}
+              />
+              <View style={styles.productDetails}>
                 <Text size={18} font="semibold">
-                  Benegrip Multi
+                  {product.name}
                 </Text>
                 <Text style={styles.productDescription}>
                   Caixa com 20 comprimidos 20mg
@@ -52,7 +57,7 @@ export const Cart = ({ navigation }: MainRootProps<"Cart">) => {
               </Button>
             </View>
 
-            {index < products.length - 1 && <Divider />}
+            {index < productList.length - 1 && <Divider />}
           </View>
         ))}
       </ScrollView>

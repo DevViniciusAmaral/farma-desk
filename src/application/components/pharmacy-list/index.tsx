@@ -4,10 +4,11 @@ import { stylesheet } from "./styles";
 import { PharmacyCard } from "../pharmacy-card";
 import { Divider } from "../divider";
 import { Text } from "../text";
+import { IPharmacy } from "../../models/IPharmacy";
 
 interface PharmacyListProps extends ViewProps {
   title: string;
-  data: any[];
+  data: IPharmacy[];
   handleSelect?: () => void;
 }
 
@@ -27,9 +28,9 @@ export const PharmacyList = ({
       </Text>
 
       <View>
-        {data.map((_, index) => (
+        {data.map((pharmacy, index) => (
           <View key={index} style={styles.button}>
-            <PharmacyCard onPress={handleSelect} />
+            <PharmacyCard data={pharmacy} onPress={handleSelect} />
             {index < data.length - 1 && <Divider />}
           </View>
         ))}

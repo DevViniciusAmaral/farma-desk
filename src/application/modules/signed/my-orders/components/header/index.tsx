@@ -6,16 +6,20 @@ import { Divider } from "../../../../../components/divider";
 import { PrimaryButton } from "../../../../../components/primary-button";
 import { useRef, useState } from "react";
 import { Button } from "../../../../../components/button";
-import { StatusBar } from "expo-status-bar";
+import { format } from "date-fns";
+import { ptBR } from "date-fns/locale";
+import { IProduct } from "../../../../../models/IProduct";
+import { orderList } from "../../../../../constants/OrderList";
 
-const orders = [1, 2, 3];
+const orders = orderList.splice(0, 3);
 
 interface HeaderProps {
+  product: IProduct;
   handleDetails: (id: any) => void;
 }
 
-export const Header = ({ handleDetails }: HeaderProps) => {
-  const { styles, theme } = useStyles(stylesheet);
+export const Header = ({ product, handleDetails }: HeaderProps) => {
+  const { styles } = useStyles(stylesheet);
 
   const listRef = useRef<ScrollView>(null);
   const [indexList, setIndexList] = useState(0);
@@ -47,12 +51,13 @@ export const Header = ({ handleDetails }: HeaderProps) => {
         onScroll={handleScroll}
         scrollEventThrottle={16}
       >
-        {orders.map((_, index) => (
+        {orders.map((order, index) => (
           <View key={index} style={styles.card}>
             <Text style={styles.cardTitle()}>Previsão de Entrega</Text>
 
             <Text size={18} font="semibold">
-              17 de Dezembro, Segunda-feira
+              {new Date().getDate()} de{" "}
+              {format(new Date(), "MMMM, EEEE", { locale: ptBR })}
             </Text>
 
             <Text style={styles.cardTitle(true)}>
@@ -66,7 +71,7 @@ export const Header = ({ handleDetails }: HeaderProps) => {
                 <Text style={styles.cardTitle()}>Você comprou</Text>
 
                 <Text size={18} font="semibold">
-                  Benegrip Multi
+                  {product.name}
                 </Text>
 
                 <Text style={styles.cardTitle()}>
@@ -74,7 +79,10 @@ export const Header = ({ handleDetails }: HeaderProps) => {
                 </Text>
               </View>
 
-              <Image style={styles.cardImage} />
+              <Image
+                source={{ uri: product.photoURL }}
+                style={styles.cardImage}
+              />
             </View>
 
             <View style={styles.cardFooter}>

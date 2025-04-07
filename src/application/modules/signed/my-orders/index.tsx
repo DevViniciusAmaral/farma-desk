@@ -1,10 +1,11 @@
 import { useStyles } from "react-native-unistyles";
 import { stylesheet } from "./styles";
 import { Layout } from "../../../components/layout";
-import { StatusBar } from "expo-status-bar";
 import { Header } from "./components/header";
 import { OrderHistory } from "./components/order-history";
 import { MainRootProps } from "../../../routes/MainRootProps";
+import { productList } from "../../../constants/ProductList";
+import { orderList } from "../../../constants/OrderList";
 
 export const MyOrders = ({ navigation }: MainRootProps<"MyOrders">) => {
   const { styles, theme } = useStyles(stylesheet);
@@ -14,12 +15,13 @@ export const MyOrders = ({ navigation }: MainRootProps<"MyOrders">) => {
       style={styles.container}
       header={
         <Header
+          product={productList.at(0)}
           handleDetails={(id) => navigation.navigate("OrderDetails", { id })}
         />
       }
       statusBar={{ style: "light", color: theme.colors.secondary.default }}
     >
-      <OrderHistory data={[1, 2, 3, 4, 5]} />
+      <OrderHistory data={orderList} />
     </Layout>
   );
 };

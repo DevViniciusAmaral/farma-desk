@@ -9,9 +9,20 @@ export const stylesheet = createStyleSheet((theme) => ({
   image: {
     flex: 1,
     height: 90,
-    paddingHorizontal: 12,
-    paddingVertical: 15,
     borderRadius: 8,
     backgroundColor: theme.colors.primary.light,
+  },
+
+  text: {
+    marginTop: 8,
+    marginLeft: 8,
+  },
+  
+  overlay: {
+    position: "absolute",
+    width: "100%",
+    height: "100%",
+    borderRadius: 8,
+    backgroundColor: `${theme.colors.primary.default}20`,
   },
 }));

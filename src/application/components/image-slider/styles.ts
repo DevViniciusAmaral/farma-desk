@@ -1,21 +1,35 @@
+import { Dimensions } from "react-native";
 import { createStyleSheet } from "react-native-unistyles";
 
 export const stylesheet = createStyleSheet((theme) => ({
-  image: {
-    height: 231,
-    padding: 10,
-    borderRadius: 16,
-    justifyContent: "flex-end",
+  container: {
+    alignItems: "center",
+  },
+
+  list: {
     backgroundColor: theme.colors.primary.light,
   },
 
+  imageContainer: {
+    height: 231,
+    borderRadius: 16,
+    backgroundColor: theme.colors.primary.light,
+  },
+
+  image: {
+    width: Dimensions.get("window").width - 40,
+    height: 231,
+    borderRadius: 16,
+  },
+
   circleContainer: {
+    position: "absolute",
+    bottom: 8,
     padding: 4,
     borderRadius: 100,
     flexDirection: "row",
     gap: 6,
     minWidth: 80,
-    alignSelf: "center",
     backgroundColor: theme.colors.primary.default,
   },
 

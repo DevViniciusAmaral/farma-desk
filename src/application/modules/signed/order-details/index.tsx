@@ -9,6 +9,7 @@ import { Text } from "../../../components/text";
 import { PrimaryButton } from "../../../components/primary-button";
 import * as Clipboard from "expo-clipboard";
 import { useToast } from "react-native-toast-notifications";
+import { productList } from "../../../constants/ProductList";
 
 export const OrderDetails = ({
   route,
@@ -16,6 +17,8 @@ export const OrderDetails = ({
 }: MainRootProps<"OrderDetails">) => {
   const orderId = route.params?.id;
   const toast = useToast();
+
+  const product = productList.at(0);
 
   const { styles, theme } = useStyles(stylesheet);
 
@@ -95,14 +98,17 @@ export const OrderDetails = ({
           <View style={styles.horizontal}>
             <View style={styles.vertical}>
               <Text size={18} font="semibold">
-                Benegrip Multi
+                {product.name}
               </Text>
               <Text style={styles.cardTitle}>
                 Caixa com 20 comprimidos 20mg
               </Text>
             </View>
 
-            <Image style={styles.cardImage} />
+            <Image
+              source={{ uri: product.photoURL }}
+              style={styles.cardImage}
+            />
           </View>
         </View>
 

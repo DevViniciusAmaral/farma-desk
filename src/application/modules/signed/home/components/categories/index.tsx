@@ -9,8 +9,14 @@ export const Categories = () => {
 
   return (
     <View style={styles.container}>
-      {categories.map((label) => (
-        <ImageBackground key={label} style={styles.image}>
+      {categories.map(({ label, photoURL }) => (
+        <ImageBackground
+          key={label}
+          source={{ uri: photoURL }}
+          style={styles.image}
+          imageStyle={styles.image}
+        >
+          <View style={styles.overlay} />
           <Text>{label}</Text>
         </ImageBackground>
       ))}

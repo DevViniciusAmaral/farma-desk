@@ -4,9 +4,10 @@ import { Image, ScrollView, View } from "react-native";
 import { ChevronRight } from "lucide-react-native";
 import { Text } from "../../../../../components/text";
 import { Divider } from "../../../../../components/divider";
+import { IOrder } from "../../../../../models/IOrder";
 
 interface OrderHistoryProps {
-  data: any[];
+  data: IOrder[];
 }
 
 export const OrderHistory = ({ data }: OrderHistoryProps) => {
@@ -22,15 +23,15 @@ export const OrderHistory = ({ data }: OrderHistoryProps) => {
         showsVerticalScrollIndicator={false}
         contentContainerStyle={styles.list}
       >
-        {data.map((_, index) => (
+        {data.map((order, index) => (
           <View key={index} style={styles.card}>
             <View style={styles.headerCard}>
               <View style={styles.headerDetailsCard}>
                 <Text size={18} font="semibold">
-                  Ultra Farma
+                  {order.pharmacy.name}
                 </Text>
                 <Text style={styles.pharmacyAddress}>
-                  Rua Dutra, Centro, São Paulo
+                  {order.pharmacy.address}
                 </Text>
               </View>
 
@@ -40,11 +41,14 @@ export const OrderHistory = ({ data }: OrderHistoryProps) => {
             <Divider />
 
             <View style={styles.footerCard}>
-              <Image style={styles.productImage} />
+              <Image
+                source={{ uri: order.products?.[index]?.photoURL }}
+                style={styles.productImage}
+              />
 
-              <View>
+              <View style={styles.productContent}>
                 <Text size={18} font="semibold">
-                  Benegrip Multi
+                  {order.products?.[index]?.name}
                 </Text>
                 <Text style={styles.productDescription}>
                   Caixa com 20 comprimidos 20mg

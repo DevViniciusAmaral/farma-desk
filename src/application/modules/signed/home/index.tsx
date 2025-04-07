@@ -9,9 +9,13 @@ import { ImageSlider } from "../../../components/image-slider";
 import { Header } from "./components/header";
 import { MainRootProps } from "../../../routes/MainRootProps";
 import { PharmacyList } from "../../../components/pharmacy-list";
+import { pharmacyList } from "../../../constants/PharmacyList";
 
 export const Home = ({ navigation }: MainRootProps<"Home">) => {
   const { styles } = useStyles(stylesheet);
+
+  const pharmacyFormattedList = pharmacyList.splice(0, 3);
+  const pharmacyImageList = pharmacyFormattedList.map((item) => item.photoURL);
 
   return (
     <Layout
@@ -27,12 +31,12 @@ export const Home = ({ navigation }: MainRootProps<"Home">) => {
         <Text size={24} font="semibold">
           Na vitrine
         </Text>
-        <ImageSlider data={["", "", ""]} />
+        <ImageSlider data={pharmacyImageList} />
       </View>
 
       <PharmacyList
         title="Perto de você"
-        data={[1, 2, 3, 4, 5]}
+        data={pharmacyFormattedList}
         handleSelect={() => navigation.navigate("Store")}
         style={{ marginTop: 26 }}
       />

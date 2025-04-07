@@ -10,6 +10,10 @@ export const stylesheet = createStyleSheet((theme) => ({
     gap: 20,
   },
 
+  productDetails: {
+    flex: 1,
+  },
+
   vertical: {
     flex: 1,
   },

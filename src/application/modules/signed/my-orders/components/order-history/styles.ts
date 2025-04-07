@@ -37,6 +37,10 @@ export const stylesheet = createStyleSheet((theme) => ({
     alignItems: "center",
   },
 
+  productContent: {
+    flex: 1,
+  },
+
   productImage: {
     width: 64,
     height: 64,

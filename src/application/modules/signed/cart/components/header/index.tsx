@@ -5,12 +5,14 @@ import { Text } from "../../../../../components/text";
 import { PrimaryButton } from "../../../../../components/primary-button";
 import { Button } from "../../../../../components/button";
 import { Plus, Trash2 } from "lucide-react-native";
+import { IProduct } from "../../../../../models/IProduct";
 
 interface HeaderProps {
+  product: IProduct;
   handleNavigate: () => void;
 }
 
-export const Header = ({ handleNavigate }: HeaderProps) => {
+export const Header = ({ product, handleNavigate }: HeaderProps) => {
   const { styles, theme } = useStyles(stylesheet);
 
   return (
@@ -23,14 +25,17 @@ export const Header = ({ handleNavigate }: HeaderProps) => {
         <View style={styles.horizontal}>
           <View>
             <Text size={18} font="semibold">
-              Benegrip Multi
+              {product.name}
             </Text>
             <Text style={styles.cardDescription}>
               Caixa com 20 comprimidos 20mg
             </Text>
           </View>
 
-          <Image style={styles.productImage} />
+          <Image
+            source={{ uri: product.photoURL }}
+            style={styles.productImage}
+          />
         </View>
 
         <View>

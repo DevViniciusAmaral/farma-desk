@@ -8,12 +8,26 @@ export const Highlights = () => {
 
   return (
     <View style={styles.container}>
-      <ImageBackground style={styles.image}>
-        <Text>No preço</Text>
+      <ImageBackground
+        source={{
+          uri: "https://www.inovafarma.com.br/blog/wp-content/uploads/2024/07/image-1-4.jpg",
+        }}
+        style={styles.image}
+        imageStyle={styles.image}
+      >
+        <View style={styles.overlay} />
+        <Text style={styles.text}>No preço</Text>
       </ImageBackground>
 
-      <ImageBackground style={styles.image}>
-        <Text>Perto de Você</Text>
+      <ImageBackground
+        source={{
+          uri: "https://cloudfront-us-east-1.images.arcpublishing.com/newr7/NGY72QMHRVJTVG5R2PLH7TVOZU.jpg",
+        }}
+        style={styles.image}
+        imageStyle={styles.image}
+      >
+        <View style={styles.overlay} />
+        <Text style={styles.text}>Perto de Você</Text>
       </ImageBackground>
     </View>
   );

@@ -9,7 +9,11 @@ import { Button } from "../../../../../components/button";
 
 const orders = [1, 2, 3];
 
-export const Header = () => {
+interface HeaderProps {
+  handleDetails: (id: any) => void;
+}
+
+export const Header = ({ handleDetails }: HeaderProps) => {
   const { styles } = useStyles(stylesheet);
 
   const listRef = useRef<ScrollView>(null);
@@ -73,7 +77,11 @@ export const Header = () => {
             </View>
 
             <View style={styles.cardFooter}>
-              <PrimaryButton mode="secondary" style={styles.cardPrimaryButton}>
+              <PrimaryButton
+                mode="secondary"
+                style={styles.cardPrimaryButton}
+                onPress={() => handleDetails("1")}
+              >
                 Acompanhar
               </PrimaryButton>
 

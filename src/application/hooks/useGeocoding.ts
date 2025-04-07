@@ -18,9 +18,8 @@ export const useGeocoding = () => {
   };
 
   const geocoding = async (coords: Coords) => {
-    const { data } = (await geocodingClient.geocoding(coords)) as any;
-    const formatted = data.results[0].formatted_address;
-    return formatted as string;
+    const { formatted } = await geocodingClient.geocoding(coords);
+    return formatted;
   };
 
   return { getCoordinates, geocoding };

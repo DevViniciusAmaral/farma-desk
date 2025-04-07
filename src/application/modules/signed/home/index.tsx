@@ -45,11 +45,15 @@ export const Home = ({ navigation }: MainRootProps<"Home">) => {
   );
 
   const handleGetAddres = async () => {
-    setAddress("Buscando sua localização");
-    const coords = await getCoordinatesMutation.mutateAsync();
-    const address = await getAddressMutation.mutateAsync(coords);
-    storage.set("address", address);
-    setAddress(address);
+    try {
+      setAddress("Buscando sua localização");
+      const coords = await getCoordinatesMutation.mutateAsync();
+      const address = await getAddressMutation.mutateAsync(coords);
+      storage.set("address", address);
+      setAddress(address);
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   useEffect(() => {

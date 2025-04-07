@@ -4,6 +4,7 @@ import { createStyleSheet } from "react-native-unistyles";
 export const stylesheet = createStyleSheet((theme) => ({
   container: {
     alignItems: "center",
+    backgroundColor: theme.colors.primary.default,
   },
 
   list: {
@@ -20,6 +21,7 @@ export const stylesheet = createStyleSheet((theme) => ({
     width: Dimensions.get("window").width - 40,
     height: 231,
     borderRadius: 16,
+    backgroundColor: theme.colors.primary.default,
   },
 
   circleContainer: {

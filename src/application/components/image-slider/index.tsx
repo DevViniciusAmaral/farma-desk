@@ -1,4 +1,10 @@
-import { Dimensions, Image, ScrollView, View } from "react-native";
+import {
+  Dimensions,
+  Image,
+  ImageBackground,
+  ScrollView,
+  View,
+} from "react-native";
 import { useStyles } from "react-native-unistyles";
 import { stylesheet } from "./styles";
 import { useRef, useState } from "react";
@@ -38,7 +44,12 @@ export const ImageSlider = ({ data }: ImageSliderProps) => {
         scrollEventThrottle={16}
       >
         {data.map((uri, index) => (
-          <Image key={index} source={{ uri }} style={styles.image} />
+          <ImageBackground
+            key={index}
+            source={{ uri }}
+            style={styles.image}
+            imageStyle={styles.image}
+          />
         ))}
       </ScrollView>
 

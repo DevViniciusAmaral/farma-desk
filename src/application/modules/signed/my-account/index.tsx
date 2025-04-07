@@ -68,7 +68,9 @@ export const MyAccount = () => {
 
   return (
     <Layout
-      style={styles.container}
+      scrollEnabled
+      showsVerticalScrollIndicator={false}
+      contentContainerStyle={styles.container}
       header={
         <View style={styles.header}>
           <Text size={24} font="semibold">
@@ -84,7 +86,7 @@ export const MyAccount = () => {
     >
       <ScrollView
         horizontal
-        style={{ maxHeight: 230 }}
+        style={styles.cardList}
         contentContainerStyle={styles.cardsContainer}
         showsHorizontalScrollIndicator={false}
       >

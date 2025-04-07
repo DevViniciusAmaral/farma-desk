@@ -4,6 +4,12 @@ export const stylesheet = createStyleSheet((theme) => ({
   container: {
     paddingTop: 16,
     paddingHorizontal: 20,
+    paddingBottom: 120,
+  },
+
+  cardList: {
+    maxHeight: 230,
+    marginBottom: 8,
   },
 
   header: {

@@ -10,9 +10,11 @@ import {
 import { Button } from "../button";
 import { BottomTabBarProps } from "@react-navigation/bottom-tabs/lib/typescript/src";
 import { BlurView } from "@react-native-community/blur";
+import { useSafeAreaInsets } from "react-native-safe-area-context";
 
 export const BottomMenu = ({ state, navigation }: BottomTabBarProps) => {
   const { styles, theme } = useStyles(stylesheet);
+  const {bottom} = useSafeAreaInsets();
 
   const menuList = [
     { name: "Home", icon: Home },

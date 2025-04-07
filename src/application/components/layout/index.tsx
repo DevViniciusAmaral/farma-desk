@@ -7,8 +7,13 @@ import {
 } from "react-native";
 import { useStyles } from "react-native-unistyles";
 import { stylesheet } from "./styles";
-import { StatusBar } from "expo-status-bar";
+import {
+  StatusBar,
+  setStatusBarBackgroundColor,
+  setStatusBarStyle,
+} from "expo-status-bar";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
+import { useFocusEffect } from "@react-navigation/native";
 
 interface LayoutProps extends ScrollViewProps {
   header?: React.ReactNode;
@@ -43,6 +48,11 @@ export const Layout = ({
     color: theme.colors.primary.default,
   } as const;
   const currentStatusBar = statusBar || defaultStatusBar;
+
+  useFocusEffect(() => {
+    setStatusBarStyle(currentStatusBar.style);
+    setStatusBarBackgroundColor(currentStatusBar.color);
+  });
 
   return (
     <KeyboardAvoidingView

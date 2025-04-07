@@ -5,6 +5,7 @@ export const stylesheet = createStyleSheet((theme) => ({
     gap: 16,
     paddingTop: 34,
     paddingHorizontal: 20,
+    paddingBottom: 16,
   },
 
   header: {

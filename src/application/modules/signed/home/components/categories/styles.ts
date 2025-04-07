@@ -11,6 +11,7 @@ export const stylesheet = createStyleSheet((theme) => ({
     borderRadius: 8,
     flex: 1,
     minHeight: 90,
+    paddingBottom: 8,
     justifyContent: "flex-end",
     alignItems: "center",
     backgroundColor: theme.colors.primary.light,

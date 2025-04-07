@@ -7,9 +7,10 @@ import { Button } from "../../../../../components/button";
 
 interface HeaderProps {
   address: string;
+  handleUpdateAddress: () => void;
 }
 
-export const Header = ({ address }: HeaderProps) => {
+export const Header = ({ address, handleUpdateAddress }: HeaderProps) => {
   const { styles, theme } = useStyles(stylesheet);
 
   return (
@@ -29,10 +30,16 @@ export const Header = ({ address }: HeaderProps) => {
       <View style={styles.addressContainer}>
         <View style={styles.addressContent}>
           <MapPin size={24} color={theme.colors.secondary.default} />
-          <Text style={styles.addressText}>{address ?? "Sua localização"}</Text>
+          <Text
+            style={styles.addressText}
+            numberOfLines={1}
+            lineBreakMode="tail"
+          >
+            {address}
+          </Text>
         </View>
 
-        <Button style={styles.addressButton}>
+        <Button style={styles.addressButton} onPress={handleUpdateAddress}>
           <Text style={styles.addressTextButton}>Alterar</Text>
         </Button>
       </View>

@@ -10,27 +10,26 @@ import { Header } from "./components/header";
 import { MainRootProps } from "../../../routes/MainRootProps";
 import { PharmacyList } from "../../../components/pharmacy-list";
 import { pharmacyList } from "../../../constants/PharmacyList";
+import { useEffect, useMemo, useState } from "react";
 import { useGeocoding } from "../../../hooks/useGeocoding";
-import { useEffect, useMemo } from "react";
-import { useQuery } from "@tanstack/react-query";
+import { useMutation, useQuery } from "@tanstack/react-query";
+import { storage } from "../../../../insfrastructure/storage";
 
 export const Home = ({ navigation }: MainRootProps<"Home">) => {
   const { styles } = useStyles(stylesheet);
   const { getCoordinates, geocoding } = useGeocoding();
 
-  const { data: coords } = useQuery({
-    queryKey: ["getCoordinates"],
-    queryFn: getCoordinates,
+  const getCoordinatesMutation = useMutation({
+    mutationKey: ["getCoordinates"],
+    mutationFn: getCoordinates,
   });
 
-  const { data: address } = useQuery({
-    enabled: !!coords,
-    queryKey: ["getGeocoding"],
-    queryFn: () => {
-      const { latitude, longitude } = coords;
-      return geocoding(latitude, longitude);
-    },
+  const getAddressMutation = useMutation({
+    mutationKey: ["getGeocoding"],
+    mutationFn: (data: any) => geocoding(data),
   });
+
+  const [address, setAddress] = useState("Sua localização");
 
   const pharmacyFormattedList = useMemo(
     () => pharmacyList.splice(0, 3),
@@ -42,11 +41,27 @@ export const Home = ({ navigation }: MainRootProps<"Home">) => {
     [pharmacyFormattedList]
   );
 
+  const handleGetAddres = async () => {
+    setAddress("Buscando sua localização");
+    const coords = await getCoordinatesMutation.mutateAsync();
+    const address = await getAddressMutation.mutateAsync(coords);
+    storage.set("address", address);
+    setAddress(address);
+  };
+
+  useEffect(() => {
+    const address = storage.getString("address");
+    if (address) setAddress(address);
+    else handleGetAddres();
+  }, []);
+
   return (
     <Layout
       scrollEnabled
       contentContainerStyle={styles.container}
-      header={<Header address={address} />}
+      header={
+        <Header address={address} handleUpdateAddress={handleGetAddres} />
+      }
     >
       <Highlights />
 

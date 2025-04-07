@@ -17,7 +17,7 @@ export const stylesheet = createStyleSheet((theme) => ({
     marginTop: 8,
     marginLeft: 8,
   },
-  
+
   overlay: {
     position: "absolute",
     width: "100%",

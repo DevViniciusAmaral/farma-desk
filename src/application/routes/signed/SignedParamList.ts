@@ -3,4 +3,5 @@ export type SignedParamList = {
   Store: undefined;
   Product: { id: string };
   OrderDetails: { id: string };
+  PaymentMethod: undefined;
 };

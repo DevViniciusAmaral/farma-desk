@@ -8,16 +8,19 @@ import { Text } from "../../../components/text";
 import { Divider } from "../../../components/divider";
 import { Button } from "../../../components/button";
 import { Plus } from "lucide-react-native";
+import { MainRootProps } from "../../../routes/MainRootProps";
 
 const products = [1, 2, 3, 4, 5];
 
-export const Cart = () => {
+export const Cart = ({ navigation }: MainRootProps<"Cart">) => {
   const { styles, theme } = useStyles(stylesheet);
 
   return (
     <Layout
       style={styles.container}
-      header={<Header />}
+      header={
+        <Header handleNavigate={() => navigation.navigate("PaymentMethod")} />
+      }
       statusBar={{ style: "light", color: theme.colors.tertiary.default }}
     >
       <Text size={24} font="semibold">

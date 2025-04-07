@@ -6,7 +6,11 @@ import { PrimaryButton } from "../../../../../components/primary-button";
 import { Button } from "../../../../../components/button";
 import { Plus, Trash2 } from "lucide-react-native";
 
-export const Header = () => {
+interface HeaderProps {
+  handleNavigate: () => void;
+}
+
+export const Header = ({ handleNavigate }: HeaderProps) => {
   const { styles, theme } = useStyles(stylesheet);
 
   return (
@@ -55,7 +59,9 @@ export const Header = () => {
           </Button>
         </View>
 
-        <PrimaryButton>Continuar para o Pagamento</PrimaryButton>
+        <PrimaryButton onPress={handleNavigate}>
+          Continuar para o Pagamento
+        </PrimaryButton>
       </View>
     </View>
   );

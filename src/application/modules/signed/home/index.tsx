@@ -29,6 +29,9 @@ export const Home = ({ navigation }: MainRootProps<"Home">) => {
     mutationFn: (data: any) => geocoding(data),
   });
 
+  const isLoadingAddress =
+    getCoordinatesMutation.isPending ?? getAddressMutation.isPending;
+
   const [address, setAddress] = useState("Sua localização");
 
   const pharmacyFormattedList = useMemo(
@@ -60,7 +63,11 @@ export const Home = ({ navigation }: MainRootProps<"Home">) => {
       scrollEnabled
       contentContainerStyle={styles.container}
       header={
-        <Header address={address} handleUpdateAddress={handleGetAddres} />
+        <Header
+          address={address}
+          isLoadingAddress={isLoadingAddress}
+          handleUpdateAddress={handleGetAddres}
+        />
       }
     >
       <Highlights />

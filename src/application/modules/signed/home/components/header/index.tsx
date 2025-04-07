@@ -1,4 +1,4 @@
-import { View } from "react-native";
+import { ActivityIndicator, View } from "react-native";
 import { useStyles } from "react-native-unistyles";
 import { stylesheet } from "./styles";
 import { Text } from "../../../../../components/text";
@@ -7,10 +7,15 @@ import { Button } from "../../../../../components/button";
 
 interface HeaderProps {
   address: string;
+  isLoadingAddress: boolean;
   handleUpdateAddress: () => void;
 }
 
-export const Header = ({ address, handleUpdateAddress }: HeaderProps) => {
+export const Header = ({
+  address,
+  isLoadingAddress,
+  handleUpdateAddress,
+}: HeaderProps) => {
   const { styles, theme } = useStyles(stylesheet);
 
   return (
@@ -40,7 +45,14 @@ export const Header = ({ address, handleUpdateAddress }: HeaderProps) => {
         </View>
 
         <Button style={styles.addressButton} onPress={handleUpdateAddress}>
-          <Text style={styles.addressTextButton}>Alterar</Text>
+          {isLoadingAddress ? (
+            <ActivityIndicator
+              size="small"
+              color={theme.colors.primary.default}
+            />
+          ) : (
+            <Text style={styles.addressTextButton}>Alterar</Text>
+          )}
         </Button>
       </View>
     </View>

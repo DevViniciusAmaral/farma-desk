@@ -15,12 +15,11 @@ export const Cart = () => {
   const { styles, theme } = useStyles(stylesheet);
 
   return (
-    <Layout style={styles.container} header={<Header />}>
-      <StatusBar
-        style="light"
-        backgroundColor={theme.colors.tertiary.default}
-      />
-
+    <Layout
+      style={styles.container}
+      header={<Header />}
+      statusBar={{ style: "light", color: theme.colors.tertiary.default }}
+    >
       <Text size={24} font="semibold">
         Peça também
       </Text>

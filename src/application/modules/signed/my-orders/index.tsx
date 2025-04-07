@@ -17,12 +17,8 @@ export const MyOrders = ({ navigation }: MainRootProps<"MyOrders">) => {
           handleDetails={(id) => navigation.navigate("OrderDetails", { id })}
         />
       }
+      statusBar={{ style: "light", color: theme.colors.secondary.default }}
     >
-      <StatusBar
-        style="light"
-        backgroundColor={theme.colors.secondary.default}
-      />
-
       <OrderHistory data={[1, 2, 3, 4, 5]} />
     </Layout>
   );

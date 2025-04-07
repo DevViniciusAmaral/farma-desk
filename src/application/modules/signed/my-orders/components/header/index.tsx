@@ -6,6 +6,7 @@ import { Divider } from "../../../../../components/divider";
 import { PrimaryButton } from "../../../../../components/primary-button";
 import { useRef, useState } from "react";
 import { Button } from "../../../../../components/button";
+import { StatusBar } from "expo-status-bar";
 
 const orders = [1, 2, 3];
 
@@ -14,7 +15,7 @@ interface HeaderProps {
 }
 
 export const Header = ({ handleDetails }: HeaderProps) => {
-  const { styles } = useStyles(stylesheet);
+  const { styles, theme } = useStyles(stylesheet);
 
   const listRef = useRef<ScrollView>(null);
   const [indexList, setIndexList] = useState(0);

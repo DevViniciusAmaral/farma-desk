@@ -14,6 +14,13 @@ interface LayoutProps extends ScrollViewProps {
   header?: React.ReactNode;
   paddingTopEnabled?: boolean;
   footer?: React.ReactNode;
+  statusBarColor?: string;
+  statusBar?: { style: "light" | "dark"; color: string };
+}
+
+interface CustomStatusBar {
+  style: "light" | "dark";
+  color: string;
 }
 
 export const Layout = ({
@@ -22,6 +29,7 @@ export const Layout = ({
   style,
   footer,
   scrollEnabled = false,
+  statusBar,
   ...rest
 }: LayoutProps) => {
   const { styles, theme } = useStyles(stylesheet);
@@ -30,13 +38,22 @@ export const Layout = ({
 
   const behavior = Platform.OS === "ios" ? "padding" : "height";
 
+  const defaultStatusBar = {
+    style: "dark",
+    color: theme.colors.primary.default,
+  } as const;
+  const currentStatusBar = statusBar || defaultStatusBar;
+
   return (
     <KeyboardAvoidingView
       enabled
       behavior={behavior}
       style={styles.container(paddingTop)}
     >
-      <StatusBar style="dark" backgroundColor={theme.colors.primary.default} />
+      <StatusBar
+        style={currentStatusBar.style}
+        backgroundColor={currentStatusBar.color}
+      />
       {header && <>{header}</>}
 
       {scrollEnabled ? (

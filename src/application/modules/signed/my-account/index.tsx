@@ -94,7 +94,7 @@ export const MyAccount = () => {
             ? theme.colors.secondary.default
             : theme.colors.tertiary.default;
           return (
-            <View style={styles.card(isPrimary)}>
+            <View key={index} style={styles.card(isPrimary)}>
               <View style={styles.iconContainer}>
                 <Icon size={24} color={iconColor} />
               </View>

@@ -5,48 +5,21 @@
 O aplicativo conta com algumas telas de exemplo de um aplicativo no ramo de farmácia, que são:
 
 ---
-> <a href="https://drive.google.com/file/d/1hhh7NC4lecXoD3agn0X8ovEWwKd_IZTy/view?usp=sharing">Clique aqui para baixar o app!</a>
+> <a href="https://drive.google.com/file/d/1hhh7NC4lecXoD3agn0X8ovEWwKd_IZTy/view?usp=sharing">Clique aqui para baixar o app! [Android]</a>
 ---
 
-<ol style="display: flex; flex-wrap: wrap; gap: 20px; list-style-position: inside; padding: 0;">
-    <div style="display: flex;flex-direction: column;align-items: center;">
-        <li>Login</li>
-        <img src="./assets/images/Login.png" alt="Tela de login" height="200" style="object-fit: contain" />
-    </div>
-    <div style="display: flex;flex-direction: column;align-items: center;">
-        <li>Confirmar e-mail</li>
-        <img src="./assets/images/Confirmar-Email.png" alt="Tela de login" height="200" style="object-fit: contain" />
-    </div>
-    <div style="display: flex;flex-direction: column;align-items: center;">
-        <li>Home</li>
-        <img src="./assets/images/Home.png" alt="Tela de login" height="200" style="object-fit: contain" />
-    </div>
-    <div style="display: flex;flex-direction: column;align-items: center;">
-        <li>Loja</li>
-        <img src="./assets/images/Loja.png" alt="Tela de login" height="200" style="object-fit: contain" />
-    </div>
-    <div style="display: flex;flex-direction: column;align-items: center;">
-        <li>Produto</li>
-        <img src="./assets/images/Produto.png" alt="Tela de login" height="200" style="object-fit: contain" />
-    </div>
-    <div style="display: flex;flex-direction: column;align-items: center;">
-        <li>Conta</li>
-        <img src="./assets/images/Conta.png" alt="Tela de login" height="200" style="object-fit: contain" />
-    </div>
-    <div style="display: flex;flex-direction: column;align-items: center;">
-        <li>Meus pedidos</li>
-        <img src="./assets/images/Meus-Pedidos.png" alt="Tela de login" height="200" style="object-fit: contain" />
-    </div>
-    <div style="display: flex;flex-direction: column;align-items: center;">
-        <li>Detalhes - Acompanhar</li>
-        <img src="./assets/images/Detalhes-Acompanhar.png" alt="Tela de login" height="200" style="object-fit: contain" />
-    </div>
-    <div style="display: flex;flex-direction: column;align-items: center;">
-        <li>Checkout</li>
-        <img src="./assets/images/Checkout.png" alt="Tela de login" height="200" style="object-fit: contain" />
-    </div>
-</ol>
-<br>
+| Tela                         | Imagem 
+| --------                     | ----- 
+| Login                        | <a href="./assets/images/Login.png">clique para abrir</a>     
+| Confirmar E-mail             | <a href="./assets/images/Confirmar-Email.png">clique para abrir</a>     
+| Home                         | <a href="./assets/images/Home.png">clique para abrir</a>     
+| Loja                         | <a href="./assets/images/Loja.png">clique para abrir</a>     
+| Produto                      | <a href="./assets/images/Produto.png">clique para abrir</a>     
+| Conta                        | <a href="./assets/images/Conta.png">clique para abrir</a>     
+| Meus Pedidos                 | <a href="./assets/images/Meus-Pedidos.png">clique para abrir</a>     
+| Detalhes - Acompanhar        | <a href="./assets/images/Detalhes-Acompanhar.png">clique para abrir</a>     
+| Checkout                     | <a href="./assets/images/Checkout.png">clique para abrir</a>     
+
 
 ## Clonar repositório
 

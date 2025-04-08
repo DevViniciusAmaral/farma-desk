@@ -4,6 +4,16 @@
 
 O aplicativo conta com algumas telas de exemplo de um aplicativo no ramo de farmácia, que são:
 
+---
+<br>
+<div style="display: flex; align-items: center; gap: 8px">
+    <img src="./assets/images/app-icon.png" width="20" height="20" style="border-radius: 4px" /> 
+    <a style="font-style: italic" href="https://drive.google.com/file/d/1hhh7NC4lecXoD3agn0X8ovEWwKd_IZTy/view?usp=sharing">Farma Desk - Clique aqui para baixar o apk! [Android]<span>
+</div>
+<br>
+
+---
+
 <ol style="display: flex; flex-wrap: wrap; gap: 20px; list-style-position: inside; padding: 0;">
     <div style="display: flex;flex-direction: column;align-items: center;">
         <li>Login</li>
@@ -42,8 +52,7 @@ O aplicativo conta com algumas telas de exemplo de um aplicativo no ramo de farm
         <img src="./assets/images/Checkout.png" alt="Tela de login" height="200" style="object-fit: contain" />
     </div>
 </ol>
-
----
+<br>
 
 ## Clonar repositório
 

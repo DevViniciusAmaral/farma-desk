@@ -5,13 +5,7 @@
 O aplicativo conta com algumas telas de exemplo de um aplicativo no ramo de farmácia, que são:
 
 ---
-<br>
-<div style="display: flex; align-items: center; justify-content: center; gap: 8px">
-    <img src="./assets/images/app-icon.png" width="40" height="40" style="border-radius: 4px" /> 
-    <a style="font-style: italic; font-size: 20px" href="https://drive.google.com/file/d/1hhh7NC4lecXoD3agn0X8ovEWwKd_IZTy/view?usp=sharing">Farma Desk - Clique aqui para baixar o apk! [Android]<span>
-</div>
-<br>
-
+> <a href="https://drive.google.com/file/d/1hhh7NC4lecXoD3agn0X8ovEWwKd_IZTy/view?usp=sharing">Clique aqui para baixar o app!</a>
 ---
 
 <ol style="display: flex; flex-wrap: wrap; gap: 20px; list-style-position: inside; padding: 0;">

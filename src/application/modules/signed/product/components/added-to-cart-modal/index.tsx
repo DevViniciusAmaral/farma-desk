@@ -7,11 +7,13 @@ import { Text } from "../../../../../components/text";
 import { PrimaryButton } from "../../../../../components/primary-button";
 
 interface AddedToCartModalProps extends Partial<ModalProps> {
+  handleNavigateToCart: () => void;
   onClose: () => void;
 }
 
 export const AddedToCartModal = ({
   onClose,
+  handleNavigateToCart,
   ...rest
 }: AddedToCartModalProps) => {
   const { styles, theme } = useStyles(stylesheet);
@@ -45,7 +47,7 @@ export const AddedToCartModal = ({
             Talvez depois
           </PrimaryButton>
 
-          <PrimaryButton style={styles.button} onPress={onClose}>
+          <PrimaryButton style={styles.button} onPress={handleNavigateToCart}>
             Ver carrinho
           </PrimaryButton>
         </View>

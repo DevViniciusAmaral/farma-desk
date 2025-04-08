@@ -12,12 +12,16 @@ import { AvailablePharmacyCard } from "./components/available-pharmacy-card";
 import { MainRootProps } from "../../../routes/MainRootProps";
 import { useState } from "react";
 import { AddedToCartModal } from "./components/added-to-cart-modal";
+import { productList } from "../../../constants/ProductList";
+import { pharmacyList } from "../../../constants/PharmacyList";
 
 export const Product = ({ route, navigation }: MainRootProps<"Product">) => {
   const productId = route.params?.id;
   const { styles, theme } = useStyles(stylesheet);
 
   const [showAddedToCartModal, setShowAddedToCartModal] = useState(false);
+
+  const productImages = productList.map((product) => product.photoURL);
 
   return (
     <>
@@ -36,7 +40,7 @@ export const Product = ({ route, navigation }: MainRootProps<"Product">) => {
           </View>
         }
       >
-        <ImageSlider data={["", "", ""]} />
+        <ImageSlider data={productImages} />
 
         <View style={styles.infoDetails}>
           <Text size={24} font="semibold">
@@ -74,14 +78,18 @@ export const Product = ({ route, navigation }: MainRootProps<"Product">) => {
 
         <PharmacyList
           title="Parecidos com esse"
-          data={["", "", ""]}
+          data={pharmacyList}
           style={styles.pharmacyList}
+          handleSelect={(id) => navigation.navigate("Store", { id })}
         />
       </Layout>
 
       <AddedToCartModal
         isVisible={showAddedToCartModal}
         onClose={() => setShowAddedToCartModal(false)}
+        handleNavigateToCart={() =>
+          navigation.navigate("BottomTabsNavigator", { screen: "Cart" } as any)
+        }
       />
     </>
   );

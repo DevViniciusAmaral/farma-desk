@@ -3,9 +3,12 @@ import { useStyles } from "react-native-unistyles";
 import { stylesheet } from "./styles";
 import { Text } from "../../../../../components/text";
 import { PrimaryButton } from "../../../../../components/primary-button";
+import { pharmacyList } from "../../../../../constants/PharmacyList";
 
 export const AvailablePharmacyCard = () => {
   const { styles } = useStyles(stylesheet);
+
+  const pharmacy = pharmacyList.at(0);
 
   return (
     <View>
@@ -23,10 +26,10 @@ export const AvailablePharmacyCard = () => {
 
       <View style={styles.card}>
         <View style={styles.cardContent}>
-          <Image style={styles.image} />
+          <Image source={{ uri: pharmacy.photoURL }} style={styles.image} />
           <View>
             <Text size={18} font="semibold">
-              Farmácia Preço Popular
+              {pharmacy.name}
             </Text>
             <Text size={18} style={styles.description}>
               Aberta até 22h • Centro, PR

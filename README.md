@@ -6,9 +6,9 @@ O aplicativo conta com algumas telas de exemplo de um aplicativo no ramo de farm
 
 ---
 <br>
-<div style="display: flex; align-items: center; gap: 8px">
-    <img src="./assets/images/app-icon.png" width="20" height="20" style="border-radius: 4px" /> 
-    <a style="font-style: italic" href="https://drive.google.com/file/d/1hhh7NC4lecXoD3agn0X8ovEWwKd_IZTy/view?usp=sharing">Farma Desk - Clique aqui para baixar o apk! [Android]<span>
+<div style="display: flex; align-items: center; justify-content: center; gap: 8px">
+    <img src="./assets/images/app-icon.png" width="40" height="40" style="border-radius: 4px" /> 
+    <a style="font-style: italic; font-size: 20px" href="https://drive.google.com/file/d/1hhh7NC4lecXoD3agn0X8ovEWwKd_IZTy/view?usp=sharing">Farma Desk - Clique aqui para baixar o apk! [Android]<span>
 </div>
 <br>
 

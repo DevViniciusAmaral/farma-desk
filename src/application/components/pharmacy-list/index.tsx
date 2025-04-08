@@ -9,7 +9,7 @@ import { IPharmacy } from "../../models/IPharmacy";
 interface PharmacyListProps extends ViewProps {
   title: string;
   data: IPharmacy[];
-  handleSelect?: () => void;
+  handleSelect?: (id: string) => void;
 }
 
 export const PharmacyList = ({
@@ -30,7 +30,10 @@ export const PharmacyList = ({
       <View>
         {data.map((pharmacy, index) => (
           <View key={index} style={styles.button}>
-            <PharmacyCard data={pharmacy} onPress={handleSelect} />
+            <PharmacyCard
+              data={pharmacy}
+              onPress={() => handleSelect(pharmacy.id)}
+            />
             {index < data.length - 1 && <Divider />}
           </View>
         ))}

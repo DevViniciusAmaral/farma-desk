@@ -8,7 +8,7 @@ export const stylesheet = createStyleSheet((theme) => ({
   },
 
   list: {
-    backgroundColor: theme.colors.primary.light,
+    backgroundColor: theme.colors.primary.default,
   },
 
   imageContainer: {

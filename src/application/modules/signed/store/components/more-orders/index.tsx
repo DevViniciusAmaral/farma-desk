@@ -19,17 +19,20 @@ export const MoreOrders = ({ handleNavigate }: MoreOrdersProps) => {
       </Text>
 
       <View style={styles.productList}>
-        {productList.map((_, index) => (
+        {productList.map((product, index) => (
           <Button
             key={index}
             style={styles.productContainer}
             onPress={handleNavigate}
           >
             <View style={styles.productContent}>
-              <Image style={styles.productImage} />
-              <View>
+              <Image
+                source={{ uri: product.photoURL }}
+                style={styles.productImage}
+              />
+              <View style={{ flex: 1 }}>
                 <Text size={18} font="semibold">
-                  Benegrip Multi
+                  {product.name}
                 </Text>
 
                 <Text size={16} style={styles.productDescription}>

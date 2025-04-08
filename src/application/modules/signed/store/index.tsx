@@ -9,9 +9,14 @@ import { StoreDetails } from "./components/store-details";
 import { Offers } from "./components/offers";
 import { MoreOrders } from "./components/more-orders";
 import { MainRootProps } from "../../../routes/MainRootProps";
+import { pharmacyList } from "../../../constants/PharmacyList";
+import { productList } from "../../../constants/ProductList";
 
-export const Store = ({ navigation }: MainRootProps<"Store">) => {
+export const Store = ({ route, navigation }: MainRootProps<"Store">) => {
+  const pharmacyId = route.params?.id;
   const { styles } = useStyles(stylesheet);
+
+  const pharmacy = pharmacyList.at(0);
 
   return (
     <Layout
@@ -19,11 +24,11 @@ export const Store = ({ navigation }: MainRootProps<"Store">) => {
       contentContainerStyle={styles.container}
       header={<Header handleGoBack={navigation.goBack} />}
     >
-      <StoreDetails />
+      <StoreDetails pharmacy={pharmacy} />
 
       <View style={styles.content}>
         <SearchBar placeholder="Buscar medicamento" />
-        <ImageSlider data={["", "", ""]} />
+        <ImageSlider data={productList.map((item) => item.photoURL)} />
       </View>
 
       <Offers />

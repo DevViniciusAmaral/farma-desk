@@ -88,7 +88,7 @@ export const Home = ({ navigation }: MainRootProps<"Home">) => {
       <PharmacyList
         title="Perto de você"
         data={pharmacyFormattedList}
-        handleSelect={() => navigation.navigate("Store")}
+        handleSelect={(id) => navigation.navigate("Store", { id })}
         style={{ marginTop: 26 }}
       />
     </Layout>

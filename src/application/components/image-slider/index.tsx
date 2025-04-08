@@ -44,11 +44,10 @@ export const ImageSlider = ({ data }: ImageSliderProps) => {
         scrollEventThrottle={16}
       >
         {data.map((uri, index) => (
-          <ImageBackground
+          <Image
             key={index}
             source={{ uri }}
             style={styles.image}
-            imageStyle={styles.image}
           />
         ))}
       </ScrollView>

@@ -3,6 +3,7 @@ import { useStyles } from "react-native-unistyles";
 import { stylesheet } from "./styles";
 import { Text } from "../../../../../components/text";
 import { storeList } from "../../../../../constants/StoreList";
+import { pharmacyList } from "../../../../../constants/PharmacyList";
 
 export const Offers = () => {
   const { styles } = useStyles(stylesheet);
@@ -18,11 +19,14 @@ export const Offers = () => {
         contentContainerStyle={styles.list}
         showsHorizontalScrollIndicator={false}
       >
-        {storeList.map((store, index) => (
+        {pharmacyList.map((pharmacy, index) => (
           <View key={index} style={styles.storeContainer}>
-            <Image style={styles.storeImage} />
+            <Image
+              source={{ uri: pharmacy.photoURL }}
+              style={styles.storeImage}
+            />
             <Text size={16} style={styles.storeName}>
-              {store}
+              {pharmacy.name}
             </Text>
           </View>
         ))}
